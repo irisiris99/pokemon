@@ -1,17 +1,53 @@
 import styled from '@emotion/styled'
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { PokeImageSkeleton } from '../Common/PokeImageSkeleton'
 import PokeMarkChip from '../Common/PokeMarkChip'
 import PokeNameChip from '../Common/PokeNameChip'
+import { fetchPokemonDetail, PokemonDetailType } from '../Service/PokemonService'
 
-const TempImgUrl = 'https://mblogthumb-phinf.pstatic.net/20160817_259/retspe_14714118890125sC2j_PNG/%C7%C7%C4%AB%C3%F2_%281%29.png?type=w800'
+interface PokeCardProps {
+  name: string
+}
 
-const PokeCard = () => {
+const PokeCard = (props:PokeCardProps) => {
+  const navigate = useNavigate();
+  const [pokemon, setPokemon] = useState<PokemonDetailType | null >(null)
+
+  const handleClick = () => {
+    navigate(`/pokemon/${props.name}`);
+  }
+
+  useEffect(() => {
+    (async () => {
+      const detail = await fetchPokemonDetail(props.name);
+      setPokemon(detail);
+    })()
+  }, [props.name])
+
+    if(!pokemon) {
+    return (
+      <Item color={'#fff'}>
+        <Header>
+          <PokeNameChip name={'포켓몬'} color={'#ffca09'} id={0}/>
+        </Header>
+        <Body>
+          <PokeImageSkeleton />
+        </Body>
+        <Footer>
+          <PokeMarkChip />
+        </Footer>
+      </Item>
+    )
+  }
+
   return (
-    <Item>
+    <Item onClick={handleClick} color={pokemon.color}>
       <Header>
-        <PokeNameChip />
+        <PokeNameChip name={pokemon.koreanName} color={pokemon.color} id={pokemon.id}/>
       </Header>
       <Body>
-        <Image src={TempImgUrl} alt="이상해씨 이미지" />
+        <Image src={pokemon.images.dreamWorldFront} alt={pokemon.name} />
       </Body>
       <Footer>
         <PokeMarkChip />
@@ -20,18 +56,30 @@ const PokeCard = () => {
   )
 }
 
-const Item = styled.li`
+const Item = styled.li<{ color:string }>`
   display: flex;
   flex-direction: column;
 
   padding: 8px;
 
-  border: 1px solid #c0c0c0;
   width: 250px;
   height: 300px;
 
   border: 1px solid #c0c0c0
   box-shadow: 1px 1px 3px 1px #c0c0c0;
+
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: Scale(1.1);
+  }
+
+  &:active {
+    background-color: ${props => props.color};
+    opacity: 0.8;
+    transition: background-color 0s;
+  }
 `
 
 const Header = styled.section`

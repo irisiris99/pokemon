@@ -1,13 +1,29 @@
 import styled from '@emotion/styled'
 import PokeCard from './PokeCard'
+import { useEffect, useState } from 'react'
+import { fetchPokemons, pokemonListReponseType } from '../Service/PokemonService'
 
 const PokeCardList = () => {
+  const [pokemons , setPokemons] = useState<pokemonListReponseType>({
+    count: 0,
+    next: '',
+    results: [],
+  })
+
+
+  useEffect(() => {
+    (async () => {
+      const pokemons : any = await fetchPokemons();
+      setPokemons(pokemons);
+    })()
+  }, [])
+
   return (
     <List>
       {
-        Array.from({ length: 10 }).map((_, index) => {
+        pokemons.results.map((pokemon, index) => {
           return (
-            <PokeCard key={index}/>
+            <PokeCard key={`${pokemon.name}_${index}`} name={pokemon.name} />
           )
         })
       }
