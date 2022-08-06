@@ -29,7 +29,7 @@
     "predeploy": "npm run build",
     "deploy": "npm run build &&gh-pages -d build"
   },
-  "homepage": ".",
+  "homepage": "https://irisiris99.github.io/pokemon",
   "eslintConfig": {
     "extends": [
       "react-app",
