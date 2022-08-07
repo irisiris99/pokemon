@@ -5,7 +5,7 @@ import PokeCardList from './List/PokeCardList'
 const PageNavigator = () => {
   return (
     <Routes>
-      <Route path="/*" element={<PokeCardList />}/>
+      <Route path="/" element={<PokeCardList />}/>
       <Route path="/pokemon/:name" element={<PokemonDetail />}/>
     </Routes>
   )

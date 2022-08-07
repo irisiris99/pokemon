@@ -4,7 +4,7 @@ import PageNavigator from './PageNavigator';
 
 function App() {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename="pokemon">
       <PageHeader />
       <PageNavigator />
     </BrowserRouter>
