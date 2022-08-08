@@ -1,13 +1,17 @@
-import {  HashRouter, HashRouter as Router, Route } from 'react-router-dom';
+import {  HashRouter, HashRouter as Router, Route, Routes } from 'react-router-dom';
 import PageHeader from './Common/PageHeader';
-import PageNavigator from './PageNavigator';
+import PokemonDetail from './Detail/PokemonDetail'
+import PokeCardList from './List/PokeCardList'
 
 function App() {
   return (
-    <div>
+    <HashRouter>
       <PageHeader />
-      <PageNavigator />
-    </div>
+      <Routes>
+        <Route path="/" element={<PokeCardList />}/>
+        <Route path="/pokemon/:name" element={<PokemonDetail />}/>
+      </Routes>
+    </HashRouter>
   );
 }
 
