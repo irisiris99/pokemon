@@ -13,4 +13,4 @@
 ![localhost_3000_pokemon_ (4)](https://user-images.githubusercontent.com/92557062/183394163-21b4b0ab-8cc0-4712-b3fd-748fb7fa0760.png)\\
 
 
-현재 React-Router 때문인지 deploy 이후 PageNavigator 부분이 나타나지 않는 현상이 발생합니다 오류를 해결하기 위해 방법을 찾고있습니다.
+현재 React-Router 때문인지 deploy 이후 PageNavigator 부분이 나타나지 않는 현상이 발생합니다 ㅜ.ㅜ 오류를 해결하기 위해 방법을 찾고있습니다.
