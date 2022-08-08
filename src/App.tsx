@@ -4,10 +4,10 @@ import PageNavigator from './PageNavigator';
 
 function App() {
   return (
-    <HashRouter>
+    <div>
       <PageHeader />
       <PageNavigator />
-    </HashRouter>
+    </div>
   );
 }
 
