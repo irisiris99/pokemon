@@ -24,14 +24,14 @@ const PokemonDetail = () => {
   if(!name || !pokemon)
   return (
     <Container>
-    <ImageContainer>
-      <PokeImageSkeleton />
-    </ImageContainer>
-    <Divider />
-    <Footer>
-      <PokeMarkChip/>
-    </Footer>
-  </Container>
+      <ImageContainer>
+        <PokeImageSkeleton />
+      </ImageContainer>
+      <Divider />
+      <Footer>
+        <PokeMarkChip/>
+      </Footer>
+    </Container>
   )
     
   
