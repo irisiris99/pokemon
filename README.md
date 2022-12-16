@@ -14,4 +14,3 @@ Pokemon Open API 를 활용한 포켓몬 카드 모음과 클릭한 포켓몬의
 
 ![localhost_3000_pokemon_ (4)](https://user-images.githubusercontent.com/92557062/183394163-21b4b0ab-8cc0-4712-b3fd-748fb7fa0760.png)\\
 
-React-Router 오류로 deploy 이후 PageNavigator 부분이 나타나지 않는 현상이 발생합니다 //
